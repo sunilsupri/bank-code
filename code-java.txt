@@ -1,0 +1,50 @@
+import java.util.Scanner;
+public class BankApplication {
+    public static void main(String[] args) {
+        System.out.println("Choose Your Option \n "+
+                "1.Deposit \n"+
+                "2.Withdraw \n"+
+                "3.Balance \n"+
+                "4.Exit");
+        Scanner sc = new Scanner(System.in);
+        int amt = sc.nextInt();
+        switch (amt){
+            case 1:
+                Bank.Deposit();
+                break;
+            case 2:
+                Bank.Withdraw();
+                break;
+            case 3:
+                Bank.Balance();
+                break;
+            case 4:
+                return;
+        }
+    }
+    class Bank {
+        static double balance = 1000;
+        public static  void Deposit(){
+            System.out.println("Enter DepositAmount");
+            Scanner sc = new Scanner(System.in);
+            double mny = sc.nextDouble();
+            balance+=mny;
+            System.out.println("Deposit Successfull"+"Your Balance is :"+balance);
+        }
+        public static  void Withdraw(){
+            System.out.println("Enter Withdraw Amount");
+            Scanner sc = new Scanner(System.in);
+            double mny2 = sc.nextDouble();
+            balance-= mny2;
+            if (balance>=1000){
+                System.out.println("Withdraw Successfull"+"Your Balance is :"+balance);
+            }else {
+                System.out.println("Withdraw unSuccessfull"+"Your Balance is 1000");
+            }
+
+        }
+        public static  void Balance() {
+            System.out.println("Your Balance is :"+balance);
+        }
+    }
+}
